@@ -21,7 +21,7 @@ FROM employees;
 
 -- 5. Which employee makes the highest salary, and which employee makes the lowest?
 
-SELECT concat(FirstName, ' ', LastName) AS 'Employee', Salary
+SELECT concat(FirstName, ' ', LastName) AS Employee, Salary
 FROM employees
 WHERE Salary = (SELECT MIN(Salary) FROM employees)
 OR Salary = (SELECT MAX(Salary) FROM employees)
@@ -48,6 +48,6 @@ HAVING count(ProductID) >= 5;
 
 -- 9. List the product id, product name, and inventory value (calculated by multiplying unit price by the number of units on hand). Sort the results in descending order by value. If two or more have the same value, order by product name.
 
-SELECT ProductID, ProductName, (UnitPrice * UnitsInStock) AS 'InventoryValue'
+SELECT ProductID, ProductName, (UnitPrice * UnitsInStock) AS InventoryValue
 FROM products
 ORDER BY InventoryValue DESC, ProductName;
